@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<!-- Header Container -->
+<% include moduleviews/header.ejs %>
+
+  <body>
+
+<!-- Logo Container -->
+    <a href="/"><img src =../assets/images/logo.png alt="This is the logo" id = "logo"></a>
+
+<!-- Navigation Bar Container -->
+  <% include moduleviews/navigation.ejs %>
+
+<!-- Content Container -->
+  <div class = "content">
+    <h1> <%= theUser.firstName %> <%= theUser.lastName %>'s Saved Connections</h1>
+  <br/>
+  <br/>
+
+<!-- CHECK IS PROFILE IS EMPTY -->
+
+  <table id="saveditems">
+    <tr>
+    <th>Connection</th>
+    <th>Catagory</th>
+    <th>Attending</th>
+    <th>Action</th>
+    <th></th>
+  </tr>
+
+  <% for (conn in data) { %>
+        <tr>
+            <td><%= data[conn].connection.name %></td>
+            <td><%= data[conn].connection.topic %></td>
+            <td><%= data[conn].rsvp %></td>
+
+            <td>
+                <form action = "/profile" method = "post">
+                  <input type = "hidden" name = "connectionID" value = "<%= data[conn].connection.cid %>">
+                  <% for (conn in data) { %>
+                    <input type = "hidden" name = "connectionList" value = "<%= data[conn].connection.cid %>">
+                  <% } %>
+
+                  <input type = "submit" class = "button" name = "action" value = "Update RSVP"></input>
+                  <td><input type = "submit" class = "button" name = "action" value = "Delete"></input></td>
+                </form>
+            </td>
+          </tr>
+        <% } %>
+    </table>
+
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+
+  <h2><%= theUser.firstName %> <%= theUser.lastName %>'s Created Connections</h2>
+
+  <table id = saveditems>
+    <!-- table headers -->
+      <tr>
+        <th>Connection</th>
+        <th>Category</th>
+        <th>Modify</th>
+        <th></th>
+      </tr>
+      
+      <% for (conn in events){ %>
+        <tr>
+          <td> <%= events[conn].name %> </td>
+          <td> <%= events[conn].topic %> </td>
+          <td>
+              <form action = "/profile" method = "post">
+                <input type = "hidden" name = "connectionID" value = "<%= events[conn].cid %>">
+    
+                <input type = "submit" class = "button" name = "action" value = "Update Connection">
+                <td><input type = "submit" class = "button" name = "action" value = "Delete Connection"></td>
+              </form>
+          </td>
+        </tr>
+      <% } %>
+  </table>
+
+
+
+
+</div>
+
+<!-- Footer Container -->
+<% include moduleviews/footer.ejs %>
+
+</body>
+</html>

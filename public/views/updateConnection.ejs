@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<!-- Header -->
+  <%include moduleviews/header.ejs %>
+
+  <body>
+
+<!-- Logo Container -->
+    <a href="/"><img src =../assets/images/logo.png alt="This is the logo" id = "logo"></a>
+
+<!-- Navigation Bar Container -->
+<%- include moduleviews/navigation.ejs %>
+
+<!-- Content Container -->
+  <div class = "content">
+<br />
+<br />
+
+<h1> Update a Connection </h1>
+<h3> Update the information below: </h3>
+<!-- Forum -->
+<form id="forumcontent" action = '/profile/updateEvent' method = 'post'>
+
+  <label id="name">Name:</label>
+  <input type="text" name="name" value = "<%= info.name %>"><br>
+
+  <label id="topic">Topic:</label>
+  <input type="text" name="topic" value = "<%= info.topic %>"><br>
+
+  <label id="date">Date:</label>
+  <input type="text" name="date" value = "<%= info.date %>"><br>
+
+  <label id="time">Time:</label>
+  <input type="text" name="time" value = "<%= info.time %>"><br>
+
+  <label id="loction">Location:</label>
+  <input type="text" name="location" value = "<%= info.location %>"><br>
+
+  <label id="details">Details:</label>
+  <input type="text" name="details" value = "<%= info.details %>"><br>
+
+  <br>
+  <input type="hidden" name="cid" value="<%= info.cid %>"><br>
+  <input type="hidden" name = "hostid" value="<%= theUser.uid %>">
+  
+  <input type = "submit" class = "button">
+</form>
+
+
+</div>
+
+<!-- Footer Container -->
+<% include moduleviews/footer.ejs %>
+    </body>
+
+</html>

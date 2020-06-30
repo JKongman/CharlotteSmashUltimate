@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<!-- Header Container -->
+  <% include moduleviews/header.ejs %>
+
+  <body>
+
+<!-- Logo Container -->
+    <a href="/"><img src =./assets/images/logo.png alt="This is the logo" id = "logo"></a>
+
+<!-- Navigation Bar Container -->
+  <% include moduleviews/navigation.ejs %>
+
+<!-- Content Container -->
+  <div class = "content">
+    <h1> Catagories </h1>
+
+    <div>
+
+      <% for (t in topics) { %>
+          <h2><%= topics[t] %></h2>
+          <ul>
+            <% for (c in cID) { %>
+              <% if (cID[c].topic == topics[t]) { %>
+                <li>
+                  <a href="/connection/<%= cID[c].cid %>">
+                    <%=cID[c].name%></a>
+                </li>
+              <% } %>
+            <% } %>
+          </ul>
+        <% } %>
+
+    </div>
+  </div>
+
+
+<!-- Footer Container -->
+<% include moduleviews/footer.ejs %>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<!-- Header -->
+  <%include moduleviews/header.ejs %>
+
+  <body>
+
+<!-- Logo Container -->
+    <a href="/"><img src =../assets/images/logo.png alt="This is the logo" id = "logo"></a>
+
+<!-- Navigation Bar Container -->
+<%- include moduleviews/navigation.ejs %>
+
+<!-- Content Container -->
+  <div class = "content">
+<br />
+<br />
+
+<h1> Create a new Connection </h1>
+<h3> Enter the information below to create a new connection </h3>
+<!-- Forum -->
+<form id="forumcontent" action = '/profile' method = 'post'>
+
+  <label id="name">Name:</label>
+  <input type="text" name="name" ><br>
+
+  <label id="topic">Topic:</label>
+  <input type="text" name="topic" ><br>
+
+  <label id="date">Date:</label>
+  <input type="text" name="date" ><br>
+
+  <label id="time">Time:</label>
+  <input type="text" name="time" ><br>
+
+  <label id="loction">Location:</label>
+  <input type="text" name="location" ><br>
+
+  <label id="details">Details:</label>
+  <input type="text" name="details" ><br>
+
+  <br>
+  <input type="hidden" name="hostid" value="<%= theUser.uid %>"><br>
+  <input type="submit" name = "action" value="Create">
+</form>
+
+
+</div>
+
+<!-- Footer Container -->
+<%- include moduleviews/footer.ejs %>
+    </body>
+
+</html>

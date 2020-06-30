@@ -1,0 +1,27 @@
+<!-- Top Navigation Bar Container -->
+<div class = "topnav">
+  <nav>
+    <ul>
+      <li>
+      <%if (typeof theUser != 'undefined'){ %>
+        <a href="/profile/newConnection">Start a New Connection</a>
+        <a id='headerWelcome' href='/profile/savedConnections'> Welcome <%= theUser.firstName %> <%= theUser.lastName %></a>
+        <a href="/profile?action=signout">Sign Out</a>
+      <% } else {%>
+        <a href="/profile/signup">Sign Up</a>
+        <a href="/profile?action=signin">Sign In</a>
+      <% } %>
+
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<!-- Navigation Bar Container -->
+<div class = "leftnav">
+    <nav>
+    <ul>
+      <li><a href="/connections">Connections</a></li>
+    </ul>
+  </nav>
+  </div>

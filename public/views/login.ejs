@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<!-- Header -->
+  <%include moduleviews/header.ejs %>
+
+  <body>
+
+<!-- Logo Container -->
+    <a href="/"><img src =../assets/images/logo.png alt="This is the logo" id = "logo"></a>
+
+<!-- Navigation Bar Container -->
+<%- include moduleviews/navigation.ejs %>
+
+<!-- Content Container -->
+  <div class = "content">
+<br />
+
+<!-- Forum -->
+<h1> Welcome to CSU</h1>
+<h3>Please Enter Your Username and Password to Sign In</h3>
+<form id="forumcontent" action = '/profile' method = 'get'>
+
+  <!-- Error Indicator -->
+  <% if(error != null){ %>
+      <h3><%= error %></h3>
+  <% } %>
+
+  <label for="username">Username:</label>
+      <input id="username" type="text" name="username"><br>
+
+  <label for="password">Password:</label>
+      <input id="password" type="password" name="password"><br> <br>
+
+  <input type="submit" name="action" value="login">
+
+</form>
+
+
+</div>
+
+<!-- Footer Container -->
+<% include moduleviews/footer.ejs %>
+    </body>
+
+</html>

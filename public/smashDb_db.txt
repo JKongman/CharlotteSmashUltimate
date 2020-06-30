@@ -1,0 +1,165 @@
+use smashDB
+
+db.createCollection('users');
+db.createCollection('connections');
+db.createCollection('userConnections');
+
+db.users.insertMany([
+    {
+    uid: "1",
+    firstName: "Justin",
+    lastName: "Kongmany",
+    emailAddress: "jkongman@uncc.edu",
+    username: "justin",
+    password: "justin1"
+
+    },
+    {
+    uid: "2",
+    firstName: "Test",
+    lastName: "Tester",
+    emailAddress: "testing@uncc.edu",
+    username: "test",
+    password: "test1"
+    }
+])
+
+db.connections.insertMany([
+    {
+    cid: "1",
+    name: "Basics",
+    topic: "Practice",
+    time: "12am",
+    date: "TBA",
+    location: "Online",
+    details: "Today we will go over the basics in our live stream. With topics such as (Movement, Jumping, Shielding, Offense, Defense, Recovery, and Air-dodging).",
+    image: "../assets/images/zero.png",
+    hostid: "1"
+    },
+    {
+    cid: "2",
+    name: "Advance",
+    topic: "Practice",
+    time: "9pm",
+    date: "TBA",
+    location: "Online",
+    details: "Come and Learn Advance Tactics on how to become a better smash player!",
+    image: "../assets/images/tweak.jpg",
+    hostid: "1"
+    },
+    {
+    cid: "3",
+    name: "New DLC Characters",
+    topic: "Practice",
+    time: "10pm",
+    date: "TBA",
+    location: "Online",
+    details: "Learn the UPCOMING DLC characters and add them to the corresponding tier list. (Hero should still be banned)",
+    image: "../assets/images/leffen.jpg",
+    hostid: "1"
+    },
+    {
+    cid: "4",
+    name: "UNCC LAN PARTY",
+    topic: "Competition",
+    time: "1pm",
+    date: "10/27/2019",
+    location: "Charlotte",
+    details: "Come and Enjoy the UNCC Charlotte LAN Party. We will have multiple events going on. Come and bring your controller. There will be grand prizes for the 3 top player!",
+    image: "../assets/images/uncce.jpg",
+    hostid: "2"
+    },
+    {
+    cid: "5",
+    name: "Stage 10",
+    topic: "Competition",
+    time: "TBA",
+    date: "TBA",
+    location: "Charlotte",
+    details: "Stage 10 is the best place to play Smash Bros Ultimate competitively come and take your stand.",
+    image: "../assets/images/stage10.jpg",
+    hostid: "2"
+    },
+    {
+    cid: "6",
+    name: "Salty Suite",
+    topic: "Competition",
+    time: "TBA",
+    date: "TBA",
+    location: "Charlotte",
+    details: "Compete in the Salty Suite Smash Bros Ultimate tournament. Enjoy 1v1, 2v2 and have fun at Salty Suite.",
+    image: "../assets/images/ss.jpg",
+    hostid: "2"
+    }
+])
+
+db.userConnections.insertMany([
+    {
+    cid: 3,
+    connection:
+        {
+        cid: "3",
+        name: "New DLC Characters",
+        topic: "Practice",
+        time: "10pm",
+        date: "TBA",
+        location: "Online",
+        details: "Learn the UPCOMING DLC characters and add them to the corresponding tier list. (Hero should still be banned)",
+        image: "../assets/images/leffen.jpg",
+        hostid: "1"
+        },
+    rsvp: "Yes",
+    uidRSVP: 1
+    },
+    {
+    cid: 5,
+    connection:
+        {
+        cid: "5",
+        name: "Stage 10",
+        topic: "Competition",
+        time: "TBA",
+        date: "TBA",
+        location: "Charlotte",
+        details: "Stage 10 is the best place to play Smash Bros Ultimate competitively come and take your stand.",
+        image: "../assets/images/stage10.jpg",
+        hostid: "2"
+        },
+    rsvp: "Maybe",
+    uidRSVP: 1
+    },
+    {
+    cid: 5,
+    connection:
+        {
+        cid: "5",
+        name: "Stage 10",
+        topic: "Competition",
+        time: "TBA",
+        date: "TBA",
+        location: "Charlotte",
+        details: "Stage 10 is the best place to play Smash Bros Ultimate competitively come and take your stand.",
+        image: "../assets/images/stage10.jpg",
+        hostid: "2"
+        },
+    rsvp: "No",
+    uidRSVP: 2
+    },
+    {
+    cid: 2,
+    connection:
+        {
+        cid: "2",
+        name: "Advance",
+        topic: "Practice",
+        time: "9pm",
+        date: "TBA",
+        location: "Online",
+        details: "Come and Learn Advance Tactics on how to become a better smash player!",
+        image: "../assets/images/tweak.jpg",
+        hostid: "1"
+        },
+    rsvp: "Maybe",
+    uidRSVP: 2
+    }
+])

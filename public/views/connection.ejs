@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<!-- Header Container -->
+  <% include moduleviews/header.ejs %>
+
+  <body>
+
+<!-- Logo Container -->
+    <a href="/"><img src =../assets/images/logo.png alt="This is the logo" id = "logo"></a>
+
+<!-- Navigation Bar Container -->
+  <% include moduleviews/navigation.ejs %>
+
+<!-- Content Container -->
+  <div class = "content">
+    <br/>
+    <p><a href="/">Home</a> >> <a href="/connections">Connections</a> </p>
+
+  <div class="ff">
+  <h4> Are you Attending This Session?</h4>
+
+  <form action="/profile" method="POST">
+  <input type = "hidden" name = "connectionID" value = "<%=cID[0].cid%>">
+  <input type="submit" name ="save" value = "YES">
+  <input type="submit" name ="save" value = "NO">
+  <input type="submit" name ="save" value = "MAYBE">
+  <input type="hidden" name= "action" value = "save">
+  </form>
+
+  </div>
+  <h1> <%= cID[0].name %> </h1>
+  <img src="<%= cID[0].image %>" id="itempic" alt="">
+  <i><%= cID[0].topic%></i>
+  <p>Hosted By: <%= theHost %></p>
+  <p>Time: <%= cID[0].time %> </p>
+  <p>Date: <%= cID[0].date %> </p>
+  <p>Location: <%= cID[0].location %> </p>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+
+
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <h3> Description </h3>
+  <p><%= cID[0].details %></p>
+
+  <br/>
+  <p>Hope to see you there! </p>
+
+</div>
+
+<!-- Footer Container -->
+<% include moduleviews/footer.ejs %>
+
+  </body>
+</html>
